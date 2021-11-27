@@ -1,5 +1,10 @@
 package classes;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.util.ArrayList;
+import java.util.Date;
+
 
 
 public class Account {
@@ -9,11 +14,9 @@ public class Account {
     String email;
     int ID;
     int password;
+    
+    static ArrayList<String> volunteeringOpportunities = new ArrayList<String>();
 
-    public static void main(String[] args) {
-        
-
-    }
 
     public void logIn() {
 
@@ -23,6 +26,5 @@ public class Account {
 
     }
 
-    
 
 }
