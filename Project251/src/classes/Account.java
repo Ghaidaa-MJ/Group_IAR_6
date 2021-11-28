@@ -39,7 +39,7 @@ public class Account {
 
                 //check if username and password are valid
                 if (name.equals(split[0]) && password.equals(split[1])) {
-                    System.out.println("for Choose the college you want select 1 \nfor Show all certificates select 2");
+                    System.out.println("for register in Volunteering Opportunities you want select 1 \nfor Show all certificates select 2");
                     int choise = scanner.nextInt();
                     VolunteerAccount v = new VolunteerAccount();
                     if (choise == 1) {

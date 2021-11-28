@@ -80,8 +80,10 @@ public class VolunteeringOpportunities {
     public void setEndDate(String endDate) {
         this.endDate = endDate;
     }
-
-    
+//
+//    public void DateFormate(){
+//        String []Date = new String[]
+//    }
     
     
          public static void AddVolunteeringOpportunities(String volunteeringType, String VolunteeringOpportunitiesName, int NumberOfVolunteers, String startDate, String endDate) {

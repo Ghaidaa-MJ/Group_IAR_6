@@ -1,5 +1,10 @@
 package classes;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -7,6 +12,11 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Welcome to KAU Volunteers Website");
+        System.out.println("for Log in Enter 1 , for insert initiatives 2 ");
+        
+        int firstChooise= scanner.nextInt();
+         switch (firstChooise) {
+             case 1: 
         System.out.println("for the student enter 1 , admin enter 2");
 
         int choise = scanner.nextInt();
@@ -42,6 +52,12 @@ public class Main {
                 break;
 
         }
+        break;
+             case 2:
+                 Initiatives initiative = new Initiatives();
+                 initiative.insertInitiatives();
+                 break;
+    }
     }
 
     public static void admin() {
@@ -91,4 +107,8 @@ public class Main {
             }
         }
     }
+
+
+         
+
 }
