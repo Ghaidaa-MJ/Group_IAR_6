@@ -61,20 +61,20 @@ public class Initiatives {
             System.out.println("Do you want to add other initiative?");
             addOther = scanner.next();
         
-        }
-//        System.out.println(initiatives.toString());
+        
         
         
     }
-    
-    public void convertArrayListFromStringToInitiatives(ArrayList <String> str){
-       str = readFile("initiatives.txt");
-        for (int i = 0 ; i <str.size();i++){
-            
-        }
     }
+    //neme  , idea , num of people , cost , location , goal
+   
     
     public boolean AcceptInitiative(){
+        System.out.println("Initiatives");
+        System.out.println("");
+        ArrayList <String> str = new ArrayList<>();
+        str = readFile("initiatives.txt");
+        System.out.println(str);
        
        return false;//initial value
    }

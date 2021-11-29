@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
-
+static CollageAdminstrator admin = new CollageAdminstrator();
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Welcome to KAU Volunteers Website");
@@ -39,13 +39,13 @@ public class Main {
             case 2:
 
                 admin();
-                CollageAdminstrator admin = new CollageAdminstrator();
+                //CollageAdminstrator admin = new CollageAdminstrator();
                 System.out.println("for add volunteering oppurtunites enter 1 , for manage Initiatives List enter 2 ");
                 int functional = scanner.nextInt();
                 if (functional == 1) {
                     admin.addVolunteeringOpportunitie();
                 } else if (functional == 2) {
-
+                    admin.addVolunteeringOpportunitie();
                 } else {
                     System.out.println("Wrong Chooise");
                 }
@@ -59,6 +59,80 @@ public class Main {
                  break;
     }
     }
+    
+    
+    
+    
+    //  System.out.println("Select the volunteering type: \n 1-Technical \n 2-organizational \n 3-Special needs \n 4-educational");
+    public void join (){
+        System.out.println("Select the Collage: \n 1-FCIT \n 2-Since \n 3-Engneering \n 4-mangment");
+         Scanner scanner = new Scanner(System.in);
+         int choise = scanner.nextInt();
+                 boolean check= true;
+              while(check){
+        if (choise != 1 || choise != 2 || choise != 3 || choise != 4) {
+            System.out.println("Wrong number !! Please choose a number from 1 to 4");
+            choise = scanner.nextInt();
+            if (choise == 1 || choise == 2 || choise == 3 || choise == 4) {
+                check=false;
+            }
+            
+             
+        } 
+       }
+         switch (choise ) {
+            case 1:
+                
+                
+                break;
+            case 2:
+                break;
+            case 3 :
+                break;
+            case 4 :
+                break;
+                    
+                    
+            default:
+                throw new AssertionError();
+        }
+    }
+    public void VolunteeringType (){
+        System.out.println("Select the volunteering type: \n 1-Technical \n 2-organizational \n 3-Special needs \n 4-educational");
+         Scanner scanner = new Scanner(System.in);
+         int choise = scanner.nextInt();
+         boolean check=true;
+      
+       while(check){
+        if (choise != 1 || choise != 2 || choise != 3 || choise != 4) {
+            System.out.println("Wrong number !! Please choose a number from 1 to 4");
+            choise = scanner.nextInt();
+            if (choise == 1 || choise == 2 || choise == 3 || choise == 4) {
+                check=false;
+            }
+            
+             
+        } 
+       }
+        
+         switch (choise ) {
+            case 1:
+                
+                
+                break;
+            case 2:
+                break;
+            case 3 :
+                break;
+            case 4 :
+                break;
+                    
+                    
+            default:
+                throw new AssertionError();
+        }
+    }
+
 
     public static void admin() {
         Scanner scanner = new Scanner(System.in);
@@ -70,6 +144,7 @@ public class Main {
             String password = scanner.next();
             switch (name) {
                 case "Fcit":
+                    admin.setName(name);
                     if (password.equals("1234Fcit")) {
                         counter = false;
                         break;
@@ -78,6 +153,7 @@ public class Main {
                         break;
                     }
                 case "Sciences":
+                    admin.setName(name);
                     if (password.equals("1234Sciences")) {
                         counter = false;
                         break;
@@ -86,6 +162,7 @@ public class Main {
                         break;
                     }
                 case "engineering":
+                    admin.setName(name);
                     if (password.equals("1234engineering")) {
                         counter = false;
                         break;
@@ -94,6 +171,7 @@ public class Main {
                         break;
                     }
                 case "management and economy":
+                    admin.setName(name);
                     if (password.equals("1234managementeconomy")) {
                         counter = false;
                         break;

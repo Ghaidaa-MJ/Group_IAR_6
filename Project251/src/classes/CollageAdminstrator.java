@@ -8,6 +8,7 @@ import java.util.Scanner;
 public class CollageAdminstrator  extends Account{
     
       VolunteeringOpportunities opportunities;
+      Initiatives initiative;
       Scanner scanner = new Scanner(System.in);
       public CollageAdminstrator(){
           
@@ -46,15 +47,24 @@ public class CollageAdminstrator  extends Account{
            System.out.println("Enter end date:");
            String endDate = scanner.next();
 
-          opportunities.AddVolunteeringOpportunities(type , Vname, NumberOfVolunteers,startDate,endDate);
+          opportunities.AddVolunteeringOpportunities(getName(),type , Vname, NumberOfVolunteers,startDate,endDate);
           
               System.out.println("Do you want to add other  Volunteering Opportunitie? ");
               str = scanner.next();
       }
           
       }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
       
       public void manageTheInitives(){
+          initiative.AcceptInitiative();
           
       }
     

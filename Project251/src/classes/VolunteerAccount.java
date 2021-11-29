@@ -16,7 +16,9 @@ public class VolunteerAccount extends Account {
 
     }
     
-   
+   //يختار الكلية 
+    // يختار النوع 
+    // يختار الفرصة التطوعية 
     
 
 }

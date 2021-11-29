@@ -86,12 +86,13 @@ public class VolunteeringOpportunities {
 //    }
     
     
-         public static void AddVolunteeringOpportunities(String volunteeringType, String VolunteeringOpportunitiesName, int NumberOfVolunteers, String startDate, String endDate) {
+        public static void AddVolunteeringOpportunities(String collage ,String volunteeringType, String VolunteeringOpportunitiesName, int NumberOfVolunteers, String startDate, String endDate) {
         String str = volunteeringType + " " + VolunteeringOpportunitiesName + " " + VolunteeringOpportunitiesID++ + " " + NumberOfVolunteers + " " + startDate + " " + endDate;
         System.out.println(str);
-        volunteeringOpportunities = readFile("opportunites.txt");
+        String fileName = collage+" "+volunteeringType+" "+"opportunites.txt";
+        volunteeringOpportunities = readFile(fileName);
         volunteeringOpportunities.add(str);
-        saveFile("opportunites.txt", volunteeringOpportunities);
+        saveFile(fileName, volunteeringOpportunities);
     }
          
          private static ArrayList<String> readFile(String filename) {
