@@ -13,10 +13,12 @@ public class Account {
     String name;
     int phoneNumber;
     String email;
-    int ID;
+    String ID;
     int password;
 
     static ArrayList<String> volunteeringOpportunities = new ArrayList<String>();
+    
+    VolunteerAccount volunteer;
 
     public void logIn() {
         Scanner scanner = new Scanner(System.in);
@@ -39,9 +41,12 @@ public class Account {
 
                 //check if username and password are valid
                 if (name.equals(split[0]) && password.equals(split[1])) {
+                    System.out.println(split[2]);
+                    ID = split[2];
                     System.out.println("for register in Volunteering Opportunities you want select 1 \nfor Show all certificates select 2");
                     int choise = scanner.nextInt();
                     VolunteerAccount v = new VolunteerAccount();
+                    v.setID(ID);
                     if (choise == 1) {
                         v.registrationInVolunteeringOpportunites();
                     } else if (choise == 2) {
@@ -66,7 +71,7 @@ public class Account {
             System.out.println("Enter your name:");
             name = scanner.next();
             System.out.println("Enter your ID:");
-            ID = scanner.nextInt();
+            ID = scanner.next();
             System.out.println("Enter your phone number:");
             phoneNumber = scanner.nextInt();
             System.out.println("Enter your email:");
@@ -120,9 +125,9 @@ public class Account {
     }
     //-----------------------------------------------------------------------------
 
-    private boolean checkID(int id) throws Exception {
+    private boolean checkID(String id) throws Exception {
         ArrayList<String> lines = readFile("volunteer.txt");
-        if (Integer.toString(id).length() != 6) {
+        if (id.length() != 6) {
             return true;
         }
         for (int i = 0; i < lines.size(); i++) {
@@ -143,7 +148,7 @@ public class Account {
     }
     //-----------------------------------------------------------------------
 
-    private void updateRecord(String Name, int id, int phonenumber, String Email, String password) throws IOException {
+    private void updateRecord(String Name, String id, int phonenumber, String Email, String password) throws IOException {
         ArrayList<String> lines = readFile("login.txt");
 
         String newRecord = Name + " " + password + " " + id + " " + phonenumber + " " + Email;

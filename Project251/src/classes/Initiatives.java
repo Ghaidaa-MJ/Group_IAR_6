@@ -50,8 +50,8 @@ public class Initiatives {
             System.out.println("Enter the Vision And Goal: ");
             VisionAndGoal= scanner2.nextLine();
             initiatives = readFile("initiatives.txt");
-            initiativeID +=1;
-            str =initiativeID + "-"+initiativeName+"-"+initiativeIdea+"-"+NumOfPeople+"-"+cost+"-"+location+"-"+VisionAndGoal;
+//            initiativeID ++;
+            str =initiativeName+"-"+initiativeIdea+"-"+NumOfPeople+"-"+cost+"-"+location+"-"+VisionAndGoal;
             initiatives.add(str);
             System.out.println(initiatives.toString());
             
@@ -68,13 +68,31 @@ public class Initiatives {
     }
     //neme  , idea , num of people , cost , location , goal
    
-    
-    public boolean AcceptInitiative(){
+    public void PrintInitiative(){
         System.out.println("Initiatives");
         System.out.println("");
         ArrayList <String> str = new ArrayList<>();
         str = readFile("initiatives.txt");
+        System.out.println("name idea number of people cost location goal");
         System.out.println(str);
+    }
+    
+     public String returnInitiative(String initiativeName) {
+        String fileName = "initiatives.txt";
+        ArrayList<String>  initiatives = new ArrayList<>();
+         initiatives = readFile(fileName);
+        for (int i = 0; i <  initiatives.size(); i++) {
+            String[] spilted =  initiatives.get(i).split("-");
+            if (spilted[0].equalsIgnoreCase( initiativeName)) {
+                return  initiatives.get(i);
+            }
+        }
+        return null;
+    }
+     
+     
+    public boolean AcceptInitiative(){
+        
        
        return false;//initial value
    }

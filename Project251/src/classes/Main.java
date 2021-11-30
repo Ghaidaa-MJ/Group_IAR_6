@@ -8,9 +8,12 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
+ 
 static CollageAdminstrator admin = new CollageAdminstrator();
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+         
         System.out.println("Welcome to KAU Volunteers Website");
         System.out.println("for Log in Enter 1 , for insert initiatives 2 ");
         
@@ -45,7 +48,7 @@ static CollageAdminstrator admin = new CollageAdminstrator();
                 if (functional == 1) {
                     admin.addVolunteeringOpportunitie();
                 } else if (functional == 2) {
-                    admin.addVolunteeringOpportunitie();
+                    admin.manageTheInitives();
                 } else {
                     System.out.println("Wrong Chooise");
                 }
@@ -68,18 +71,6 @@ static CollageAdminstrator admin = new CollageAdminstrator();
         System.out.println("Select the Collage: \n 1-FCIT \n 2-Since \n 3-Engneering \n 4-mangment");
          Scanner scanner = new Scanner(System.in);
          int choise = scanner.nextInt();
-                 boolean check= true;
-              while(check){
-        if (choise != 1 || choise != 2 || choise != 3 || choise != 4) {
-            System.out.println("Wrong number !! Please choose a number from 1 to 4");
-            choise = scanner.nextInt();
-            if (choise == 1 || choise == 2 || choise == 3 || choise == 4) {
-                check=false;
-            }
-            
-             
-        } 
-       }
          switch (choise ) {
             case 1:
                 
@@ -97,42 +88,8 @@ static CollageAdminstrator admin = new CollageAdminstrator();
                 throw new AssertionError();
         }
     }
-    public void VolunteeringType (){
-        System.out.println("Select the volunteering type: \n 1-Technical \n 2-organizational \n 3-Special needs \n 4-educational");
-         Scanner scanner = new Scanner(System.in);
-         int choise = scanner.nextInt();
-         boolean check=true;
-      
-       while(check){
-        if (choise != 1 || choise != 2 || choise != 3 || choise != 4) {
-            System.out.println("Wrong number !! Please choose a number from 1 to 4");
-            choise = scanner.nextInt();
-            if (choise == 1 || choise == 2 || choise == 3 || choise == 4) {
-                check=false;
-            }
-            
-             
-        } 
-       }
-        
-         switch (choise ) {
-            case 1:
-                
-                
-                break;
-            case 2:
-                break;
-            case 3 :
-                break;
-            case 4 :
-                break;
-                    
-                    
-            default:
-                throw new AssertionError();
-        }
-    }
-
+    
+    
 
     public static void admin() {
         Scanner scanner = new Scanner(System.in);

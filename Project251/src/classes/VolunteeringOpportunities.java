@@ -94,7 +94,28 @@ public class VolunteeringOpportunities {
         volunteeringOpportunities.add(str);
         saveFile(fileName, volunteeringOpportunities);
     }
-         
+        
+        public static void PrintVolunteeringOpportunities(String collage, String type){
+            String fileName = collage+" "+type+" opportunites.txt";
+            ArrayList <String> opportunites = new ArrayList<>();
+            opportunites= readFile(fileName);
+            System.out.println("This is the opportunities Of "+ type +" type");
+            System.out.println(opportunites);
+        }
+        
+      public static String returnVolunteeringOpportunitieInformation(String collage, String type, String OppName) {
+        String fileName = collage + " " + type + " opportunites.txt";
+        ArrayList<String> opportunites = new ArrayList<>();
+        opportunites = readFile(fileName);
+        for (int i = 0; i < opportunites.size(); i++) {
+            String[] spilted = opportunites.get(i).split(" ");
+            if (spilted[1].equalsIgnoreCase(OppName)) {
+                return opportunites.get(i);
+            }
+        }
+        return null;
+    }
+
          private static ArrayList<String> readFile(String filename) {
      
         try {
