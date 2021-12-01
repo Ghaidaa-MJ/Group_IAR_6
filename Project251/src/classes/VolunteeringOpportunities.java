@@ -1,4 +1,3 @@
-
 package classes;
 
 import java.io.BufferedReader;
@@ -9,29 +8,24 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class VolunteeringOpportunities {
-    
+
     String volunteeringType;
     String VolunteeringOpportunitiesName;
-    static int VolunteeringOpportunitiesID=1;
+    static int VolunteeringOpportunitiesID = 1;
     int NumberOfVolunteers;
     String startDate;
     String endDate;
     static VolunteerAccount volunteer;
     static ArrayList<String> volunteeringOpportunities = new ArrayList<String>();
-   
     
-  public VolunteeringOpportunities (){
-      
-  }
-  
-   
-  // public VolunteeringOpportunities ( ArrayList<VolunteeringOpportunities> volunteeringOpportunities ){
-      
-  //}
-   
-  public void addVolunteer(VolunteerAccount volunteer){
-      
-  }
+
+    public VolunteeringOpportunities() {
+
+    }
+
+    public void addVolunteer(VolunteerAccount volunteer) {
+
+    }
 
     public String getVolunteeringType() {
         return volunteeringType;
@@ -80,30 +74,34 @@ public class VolunteeringOpportunities {
     public void setEndDate(String endDate) {
         this.endDate = endDate;
     }
-//
-//    public void DateFormate(){
-//        String []Date = new String[]
-//    }
-    
-    
-        public static void AddVolunteeringOpportunities(String collage ,String volunteeringType, String VolunteeringOpportunitiesName, int NumberOfVolunteers, String startDate, String endDate) {
+
+    public static boolean AddVolunteeringOpportunities(String collage, String volunteeringType, String VolunteeringOpportunitiesName, int NumberOfVolunteers, String startDate, String endDate) {
         String str = volunteeringType + " " + VolunteeringOpportunitiesName + " " + VolunteeringOpportunitiesID++ + " " + NumberOfVolunteers + " " + startDate + " " + endDate;
-        System.out.println(str);
-        String fileName = collage+" "+volunteeringType+" "+"opportunites.txt";
+//        System.out.println(str);
+        String fileName = collage + " " + volunteeringType + " " + "opportunites.txt";
         volunteeringOpportunities = readFile(fileName);
+        int oldArraySize = volunteeringOpportunities.size();
         volunteeringOpportunities.add(str);
-        saveFile(fileName, volunteeringOpportunities);
-    }
-        
-        public static void PrintVolunteeringOpportunities(String collage, String type){
-            String fileName = collage+" "+type+" opportunites.txt";
-            ArrayList <String> opportunites = new ArrayList<>();
-            opportunites= readFile(fileName);
-            System.out.println("This is the opportunities Of "+ type +" type");
-            System.out.println(opportunites);
+        if (oldArraySize == volunteeringOpportunities.size()) {
+            return false;
         }
-        
-      public static String returnVolunteeringOpportunitieInformation(String collage, String type, String OppName) {
+        saveFile(fileName, volunteeringOpportunities);
+        return true;
+    }
+
+    public static boolean PrintVolunteeringOpportunities(String collage, String type) {
+        String fileName = collage + " " + type + " opportunites.txt";
+        ArrayList<String> opportunites = new ArrayList<>();
+        opportunites = readFile(fileName);
+        if (opportunites.size() == 0) {
+            return false;
+        }
+        System.out.println("This is the opportunities Of " + type + " type");
+        System.out.println(opportunites);
+        return true;
+    }
+
+    public static String returnVolunteeringOpportunitieInformation(String collage, String type, String OppName) {
         String fileName = collage + " " + type + " opportunites.txt";
         ArrayList<String> opportunites = new ArrayList<>();
         opportunites = readFile(fileName);
@@ -116,8 +114,8 @@ public class VolunteeringOpportunities {
         return null;
     }
 
-         private static ArrayList<String> readFile(String filename) {
-     
+    private static ArrayList<String> readFile(String filename) {
+
         try {
             String record = "";
             BufferedReader br = new BufferedReader(new FileReader(filename));
@@ -143,6 +141,5 @@ public class VolunteeringOpportunities {
         }
     }
 //---------------------------------------------------------------------------------
-   
-    
+
 }

@@ -14,12 +14,10 @@ public class Initiatives {
    String initiativeName;
    String initiativeIdea;
    int NumOfPeople;
-   String date;
    int cost;
    String location;
    String VisionAndGoal;
    ArrayList <String> initiatives = new ArrayList();
-   ArrayList <String> file = new ArrayList();
    Scanner scanner = new Scanner(System.in);
    Scanner scanner2 = new Scanner(System.in);
 
@@ -90,12 +88,6 @@ public class Initiatives {
         return null;
     }
      
-     
-    public boolean AcceptInitiative(){
-        
-       
-       return false;//initial value
-   }
     
       private ArrayList<String> readFile(String filename) {
         ArrayList<String> lines = new ArrayList<>();
@@ -161,13 +153,6 @@ public class Initiatives {
         this.NumOfPeople = NumOfPeople;
     }
 
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
 
     public int getCost() {
         return cost;
@@ -195,7 +180,7 @@ public class Initiatives {
 
     @Override
     public String toString() {
-        return  initiativeID + " " + initiativeName + " " + initiativeIdea + " " + NumOfPeople + " " + date + " " + cost + " " + location + " " + VisionAndGoal ;
+        return  initiativeID + " " + initiativeName + " " + initiativeIdea + " " + NumOfPeople + " " + cost + " " + location + " " + VisionAndGoal ;
     }
     
     
