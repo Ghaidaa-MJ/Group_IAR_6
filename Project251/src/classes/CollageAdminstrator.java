@@ -15,7 +15,8 @@ public class CollageAdminstrator  extends Account{
           
       }
       
-      public void addVolunteeringOpportunitie(){
+      public boolean addVolunteeringOpportunitie(){
+          boolean add= false;
           String str = "yes";
           while (str.equalsIgnoreCase("yes")){
            System.out.println("Select the volunteering type: \n 1-Technical \n 2-organizational \n 3-Special needs \n 4-educational");
@@ -48,11 +49,12 @@ public class CollageAdminstrator  extends Account{
            System.out.println("Enter end date:");
            String endDate = scanner.next();
 
-          opportunities.AddVolunteeringOpportunities(getName(),type , Vname, NumberOfVolunteers,startDate,endDate);
+          add = opportunities.AddVolunteeringOpportunities(getName(),type , Vname, NumberOfVolunteers,startDate,endDate);
           
               System.out.println("Do you want to add other  Volunteering Opportunitie? ");
               str = scanner.next();
       }
+          return add;
           
       }
 
@@ -64,7 +66,9 @@ public class CollageAdminstrator  extends Account{
         this.name = name;
     }
       
-      public void manageTheInitives(){
+      public boolean manageTheInitives(){
+          
+          
           initiative.PrintInitiative();
           System.out.println("Enter the name of the initiative you have approved: ");
           String initiativeName = scanner2.nextLine();
@@ -77,7 +81,10 @@ public class CollageAdminstrator  extends Account{
           String str = initiative.returnInitiative(initiativeName);
           String []split = str.split("-");
           
-          opportunities.AddVolunteeringOpportunities(getName(),type , split[0], Integer.valueOf(split[2]),startDate,endDate);
+         return opportunities.AddVolunteeringOpportunities(getName(),type , split[0], Integer.valueOf(split[2]),startDate,endDate);
+         
+          
+          
           
       }
     

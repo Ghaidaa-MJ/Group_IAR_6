@@ -17,8 +17,9 @@ public class Account {
     int password;
 
     static ArrayList<String> volunteeringOpportunities = new ArrayList<String>();
-    
+
     VolunteerAccount volunteer;
+    VolunteeringOpportunities opportunities;
 
     public void logIn() {
         Scanner scanner = new Scanner(System.in);
@@ -48,7 +49,25 @@ public class Account {
                     VolunteerAccount v = new VolunteerAccount();
                     v.setID(ID);
                     if (choise == 1) {
-                        v.registrationInVolunteeringOpportunites();
+                        ///_____________________________________________
+
+                        String collage = "";
+                        String type = "";
+                        System.out.println("Select the Collage: \n 1-FCIT \n 2-Sciences \n 3-engineering \n 4-management and economy");
+                        collage = scanner.next();
+
+                        System.out.println("Select the volunteering type: \n 1-Technical \n 2-organizational \n 3-Special needs \n 4-educational");
+                        type = scanner.next();
+
+                        opportunities.PrintVolunteeringOpportunities(collage, type);
+                        System.out.println("Write the name of opportunitie: ");
+                        String OppName = scanner.next();
+                        String oppr = opportunities.returnVolunteeringOpportunitieInformation(collage, type, OppName);
+
+                        String fileName = "Volunteer " + ID + ".txt";
+
+                        ///_________________________________________________
+                        v.registrationInVolunteeringOpportunites(fileName, oppr);
                     } else if (choise == 2) {
                         v.showAllCerrtivecates();
                     }
@@ -103,7 +122,25 @@ public class Account {
             int choise = scanner.nextInt();
             VolunteerAccount v = new VolunteerAccount();
             if (choise == 1) {
-                v.registrationInVolunteeringOpportunites();
+                ///_____________________________________________
+
+                String collage = "";
+                String type = "";
+                System.out.println("Select the Collage: \n 1-FCIT \n 2-Sciences \n 3-engineering \n 4-management and economy");
+                collage = scanner.next();
+
+                System.out.println("Select the volunteering type: \n 1-Technical \n 2-organizational \n 3-Special needs \n 4-educational");
+                type = scanner.next();
+
+                opportunities.PrintVolunteeringOpportunities(collage, type);
+                System.out.println("Write the name of opportunitie: ");
+                String OppName = scanner.next();
+                String oppr = opportunities.returnVolunteeringOpportunitieInformation(collage, type, OppName);
+
+                String fileName = "Volunteer " + ID + ".txt";
+
+                ///_________________________________________________
+                v.registrationInVolunteeringOpportunites(fileName, oppr);
             } else if (choise == 2) {
                 v.showAllCerrtivecates();
             }

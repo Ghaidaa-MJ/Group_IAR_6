@@ -21,8 +21,8 @@ public class TestVolunteeringOpportunities {
      @Test
     public void TestPrintVolunteeringOpportunities(){
          TestVolunteeringOpportunities test = new TestVolunteeringOpportunities();
-        
-        assertNotNull(test.Opportunities.PrintVolunteeringOpportunities("FCIT", "organizational"));
+         
+        assertTrue(test.Opportunities.PrintVolunteeringOpportunities("FCIT", "organizational"));
         
     }
     
