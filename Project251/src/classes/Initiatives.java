@@ -20,6 +20,7 @@ public class Initiatives {
    ArrayList <String> initiatives = new ArrayList();
    Scanner scanner = new Scanner(System.in);
    Scanner scanner2 = new Scanner(System.in);
+   DealingWithFile dealingWithFile =  new DealingWithFile();
 
     public Initiatives() {
         
@@ -47,15 +48,15 @@ public class Initiatives {
             location= scanner2.nextLine();
             System.out.println("Enter the Vision And Goal: ");
             VisionAndGoal= scanner2.nextLine();
-            initiatives = readFile("initiatives.txt");
-//            initiativeID ++;
+            initiatives = dealingWithFile.readFile("initiatives.txt");
+
             str =initiativeName+"-"+initiativeIdea+"-"+NumOfPeople+"-"+cost+"-"+location+"-"+VisionAndGoal;
             initiatives.add(str);
             System.out.println(initiatives.toString());
             
             
-            saveFile("initiatives.txt", initiatives);
-           
+            dealingWithFile.saveFile("initiatives.txt", initiatives);
+            System.out.println("Your suggestion has been submitted successfully");
             System.out.println("Do you want to add other initiative?");
             addOther = scanner.next();
         
@@ -64,21 +65,20 @@ public class Initiatives {
         
     }
     }
-    //neme  , idea , num of people , cost , location , goal
+    
    
     public void PrintInitiative(){
         System.out.println("Initiatives");
         System.out.println("");
         ArrayList <String> str = new ArrayList<>();
-        str = readFile("initiatives.txt");
-        System.out.println("name idea number of people cost location goal");
+        str = dealingWithFile.readFile("initiatives.txt");
         System.out.println(str);
     }
     
      public String returnInitiative(String initiativeName) {
         String fileName = "initiatives.txt";
         ArrayList<String>  initiatives = new ArrayList<>();
-         initiatives = readFile(fileName);
+         initiatives = dealingWithFile.readFile(fileName);
         for (int i = 0; i <  initiatives.size(); i++) {
             String[] spilted =  initiatives.get(i).split("-");
             if (spilted[0].equalsIgnoreCase( initiativeName)) {
@@ -88,38 +88,7 @@ public class Initiatives {
         return null;
     }
      
-    
-      private ArrayList<String> readFile(String filename) {
-        ArrayList<String> lines = new ArrayList<>();
-        try {
-            String record = "";
-            BufferedReader br = new BufferedReader(new FileReader(filename));
-            while ((record = br.readLine()) != null) {
-                lines.add(record);
-            }
-        } catch (Exception ex) {
-        }
-
-        return lines;
-
-    }
-  
-//----------------------------------------------------------------------------------
-
-    private void saveFile(String filename, ArrayList<String> lines) {
-        try {
-            
-            
-            BufferedWriter writer = new BufferedWriter(new FileWriter(filename));
-            for (int i = 0; i < lines.size(); i++) {
-                writer.write(lines.get(i));
-                writer.newLine();
-            }
-            writer.close();
-        } catch (Exception ex) {
-        }
-    }
-
+   
     
     public int getInitiativeID() {
         return initiativeID;

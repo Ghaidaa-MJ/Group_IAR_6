@@ -1,6 +1,8 @@
 
 
+import classes.DealingWithFile;
 import classes.VolunteerAccount;
+import classes.VolunteeringOpportunities;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -19,9 +21,73 @@ import static org.junit.Assert.*;
 public class TestVolunteerAccount {
     
     VolunteerAccount volunteer = new VolunteerAccount();
-    
+    VolunteeringOpportunities opportunities;
+    DealingWithFile dealingWithFile =  new DealingWithFile();
     
     public TestVolunteerAccount() {
+    }
+    
+    
+      public boolean registrationInVolunteeringOpportunites() {
+        
+        String collage ="";
+        String type = "";
+        System.out.println("Select the Collage: \n 1-FCIT \n 2-Sciences \n 3-engineering \n 4-management and economy");
+        int chooise= 1;
+        switch(chooise){
+            case 1:
+                collage="Fcit";
+                break;
+                case 2:
+                collage="Sciences";
+                break;
+                case 3:
+                collage="engineering";
+                break;
+                case 4:
+                collage="management and economy";
+                break;
+                
+        }
+        System.out.println("Select the volunteering type: \n 1-Technical \n 2-organizational \n 3-Special needs \n 4-educational");
+        int chooiseType= 1;
+        switch(chooiseType){
+            case 1:
+                type="Technical";
+                break;
+                case 2:
+                type="organizational";
+                break;
+                case 3:
+                type="Special needs";
+                break;
+                case 4:
+                type="educational";
+                break;
+                
+        }        
+        opportunities.PrintVolunteeringOpportunities(collage, type);
+        System.out.println("Write the name of opportunitie: ");
+        String OppName = "support";
+        String oppr = opportunities.returnVolunteeringOpportunitieInformation( collage,  type,  OppName);
+
+
+        String fileName = "Volunteer "+"Ghaidaa"+".txt";
+
+        ArrayList<String> opp = dealingWithFile.readFile(fileName);
+        if (volunteer.checkNoConflict(opp , oppr)==false){
+            System.out.println("There is conflict");
+            return false;
+        }
+        int size = opp.size();
+        
+        opp.add(oppr);
+        if (opp.size()== size)
+            return false;
+        dealingWithFile.saveFile(fileName, opp);
+        System.out.println("Your registration has been successful");
+        return true;
+
     }
     
     
@@ -29,10 +95,7 @@ public class TestVolunteerAccount {
     @Test
     public void TestregistrationInVolunteeringOpportunites() throws FileNotFoundException, IOException {
          TestVolunteerAccount test = new TestVolunteerAccount();
-        String ID = "123456";
-        String fileName = "Volunteer " + ID + ".txt";
-        String oppr ="Special needs Exam 2 20 Feb10 Feb15";
-        assertTrue(test.volunteer.registrationInVolunteeringOpportunites( fileName ,  oppr));
+        assertTrue(test.registrationInVolunteeringOpportunites());
     }
    
     

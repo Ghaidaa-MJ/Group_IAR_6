@@ -50,7 +50,7 @@ public class CollageAdminstrator  extends Account{
            String endDate = scanner.next();
 
           add = opportunities.AddVolunteeringOpportunities(getName(),type , Vname, NumberOfVolunteers,startDate,endDate);
-          
+              System.out.println("Opportunity added successfully");
               System.out.println("Do you want to add other  Volunteering Opportunitie? ");
               str = scanner.next();
       }
